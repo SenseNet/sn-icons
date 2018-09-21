@@ -6,12 +6,12 @@
   "scripts": {
     "precommit": "npm run test",
     "commit": "git-cz",
-    "pretest": "tslint --project tsconfig.test.json && rimraf temp && tsc -p tsconfig.test.json",
-    "test": "rimraf coverage && nyc mocha -p tsconfig.test.json ./temp/test/index.js",
+    "pretest": "tslint --project tsconfig.test.json && rimraf temp && tsc -p tsconfig.test.json  && cpx \"src/assets/**/*.*\" temp/src/assets",
+    "test": "rimraf coverage && nyc mocha --require ignore-styles -p tsconfig.test.json ./temp/test/index.js",
     "check-coverage": "istanbul check-coverage ",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "prebuild": "tslint --project tsconfig.json",
-    "build": "rimraf dist && tsc -p tsconfig.json && cpx \"src/**/*.css\" dist",
+    "build": "rimraf dist && tsc -p tsconfig.json && cpx \"src/assets/**/*.*\" dist/assets",
     "prepublishOnly": "npm run test && npm run build",
     "publish:development": "npm run build && npm t && npm run typedoc && npm publish --tag development",
     "typedoc": "typedoc --mode modules --out documentation src --exclude **/index.ts --theme c:/Users/%USERNAME%/AppData/Roaming/npm/node_modules/@sensenet/typedoc-theme/sn-theme"
@@ -39,12 +39,17 @@
   "license": "GPL-2.0",
   "nyc": {
     "cache": true,
-    "include": "temp/src/**/*.*",
+    "extension": [
+      ".tsx",
+      ".ts",
+      ".d.ts"
+    ],
+    "include": "temp/src/components/**/*.*",
     "exclude": [
+      "**/*.css",
       "temp/test/**/*.*",
       "**/index.js"
     ],
-    "all": true,
     "reporter": [
       "lcov",
       "text-summary",
@@ -76,6 +81,7 @@
     "file-loader": "^1.0.0-rc.0",
     "fs-extra": "6.0.1",
     "html-webpack-plugin": "3.2.0",
+    "ignore-styles": "^5.0.1",
     "mocha": "^5.0.0",
     "nyc": "^12.0.2",
     "object-assign": "4.1.1",
