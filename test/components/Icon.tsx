@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as renderer from 'react-test-renderer'
-import { Icon } from '../../src/components/Icon'
+import { Icon, iconType } from '../../src/components/Icon'
 /**
  * Page Component tests
  */
@@ -14,7 +14,9 @@ export const pageTests: Mocha.Suite = describe('Icon component', () => {
 
     it('Should render without crashing', () => {
         c = renderer.create(
-            <Icon>
+            <Icon
+            type={iconType.materialui}
+            iconName="workspace">
             </Icon>)
     })
 })

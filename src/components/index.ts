@@ -1,1 +1,5 @@
-export { Icon } from './Icon'
+export { Icon, iconType } from './Icon'
+export { FontAwesomeIcon } from './fontawesome/Icon'
+export { FlatIcon } from './flaticon/Icon'
+export { MaterialIcon } from './materialui/Icon'
+export { ImageIcon } from './image/Icon'
