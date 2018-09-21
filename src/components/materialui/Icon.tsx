@@ -7,6 +7,7 @@ interface MaterialIconProps {
     fontSize?: 'inherit' | 'default',
     classes?: object,
     style?: object,
+    onClick?
 }
 /**
  * Material Icon component
@@ -16,12 +17,13 @@ export class MaterialIcon extends React.Component<MaterialIconProps, {}> {
      * renders the component
      */
     public render() {
-        const { color, fontSize, classes, iconName, style } = this.props
+        const { color, fontSize, classes, iconName, style, onClick } = this.props
         return <Icon
             color={color ? color : 'primary'}
             fontSize={fontSize ? fontSize : 'default'}
             classes={classes ? classes : null}
             style={style ? style : null}
+            onClick={onClick ? (e) => onClick(e) : null}
         >{iconName}</Icon>
     }
 }

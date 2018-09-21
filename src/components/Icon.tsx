@@ -33,6 +33,7 @@ interface IconProps {
     fontSize?: 'inherit' | 'default',
     classes?: object,
     style?: object,
+    onClick?
 }
 
 /**
@@ -43,17 +44,17 @@ export class Icon extends React.Component<IconProps, {}> {
      * renders the component
      */
     public render() {
-        const { type, color, fontSize, classes, iconName, style } = this.props
+        const { type, color, fontSize, classes, iconName, style, onClick } = this.props
 
         switch (type) {
             case iconType.materialui:
-                return <MaterialIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style}></MaterialIcon>
+                return <MaterialIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style} onClick={onClick}></MaterialIcon>
             case iconType.flaticon:
-                return <FlatIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style}></FlatIcon>
+                return <FlatIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style} onClick={onClick}></FlatIcon>
             case iconType.fontawesome:
-                return <FontAwesomeIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style}></FontAwesomeIcon>
+                return <FontAwesomeIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style} onClick={onClick}></FontAwesomeIcon>
             case iconType.image:
-                return <ImageIcon iconName={iconName} fontSize={fontSize} style={style}></ImageIcon>
+                return <ImageIcon iconName={iconName} fontSize={fontSize} style={style} onClick={onClick}></ImageIcon>
             default:
                 return <MaterialIcon
                     iconName={iconName}
