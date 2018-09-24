@@ -5,11 +5,12 @@ import '../../assets/css/flaticon.css'
 interface FlatIconProps {
     iconName: string,
     color?: 'inherit' | 'primary' | 'secondary' | 'action' | 'error' | 'disabled',
-    fontSize?: 'inherit' | 'default',
+    fontSize?: number | 'inherit' | 'default',
     classes?: object,
     style?: object,
     onClick?
 }
+
 /**
  * Flaticon Icon component
  */

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 interface ImageIconProps {
     iconName: string,
-    fontSize?: 'inherit' | 'default',
+    size?: number | 'inherit' | 'default',
     style: object,
     onClick?
 }
@@ -14,11 +14,19 @@ export class ImageIcon extends React.Component<ImageIconProps, {}> {
      * renders the component
      */
     public render() {
-        const { fontSize, iconName, style, onClick } = this.props
-        const size = fontSize === 'default' || fontSize === 'inherit' ? '16' : '32'
-        const icon = require(`../../assets/img/${size}/${iconName}.png`)
-        return <img src={icon}
-            style={style ? style : null}
+        const { iconName, size, style, onClick } = this.props
+        const imgSize = size || size === 'default' || size === 'inherit' ? '16' : '32'
+
+        // tslint:disable-next-line:no-var-requires
+        const image = require(`../../assets/img/icons/${size}/${iconName}.png`)
+
+        const styler = {
+            backgroundImage: `url(${image})`,
+            width: `${imgSize}px`,
+            height: `${imgSize}px`,
+        }
+        const styles = style ? style : null
+        return <span style={{ ...styler, ...styles }}
             onClick={onClick ? (e) => onClick(e) : null} />
     }
 }

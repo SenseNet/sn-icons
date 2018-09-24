@@ -4,10 +4,11 @@ import * as React from 'react'
 interface MaterialIconProps {
     iconName: string,
     color?: 'inherit' | 'primary' | 'secondary' | 'action' | 'error' | 'disabled',
-    fontSize?: 'inherit' | 'default',
+    fontSize?: number | 'inherit' | 'default',
     classes?: object,
     style?: object,
     onClick?
+    className?: string,
 }
 /**
  * Material Icon component
@@ -17,13 +18,14 @@ export class MaterialIcon extends React.Component<MaterialIconProps, {}> {
      * renders the component
      */
     public render() {
-        const { color, fontSize, classes, iconName, style, onClick } = this.props
+        const { color, fontSize, classes, iconName, style, onClick, className } = this.props
         return <Icon
             color={color ? color : 'primary'}
             fontSize={fontSize ? fontSize : 'default'}
             classes={classes ? classes : null}
             style={style ? style : null}
             onClick={onClick ? (e) => onClick(e) : null}
+            className={className ? className : null}
         >{iconName}</Icon>
     }
 }
