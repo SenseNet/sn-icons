@@ -24,7 +24,7 @@ export class MaterialIcon extends React.Component<MaterialIconProps, {}> {
             fontSize={fontSize ? fontSize : 'default'}
             classes={classes ? classes : null}
             style={style ? style : null}
-            onClick={onClick ? (e) => onClick(e) : null}
+            onClick={onClick ? onClick : null}
             className={className ? className : null}
         >{iconName}</Icon>
     }

@@ -30,7 +30,7 @@ interface IconProps {
     type: iconType,
     iconName: string,
     color?: 'inherit' | 'primary' | 'secondary' | 'action' | 'error' | 'disabled',
-    size?: number,
+    size?: 16 | 32,
     fontSize?: 'inherit' | 'default',
     classes?: object,
     style?: object,
@@ -61,7 +61,7 @@ export class Icon extends React.Component<IconProps, {}> {
                 return <MaterialIcon
                     iconName={iconName}
                     color={color ? color : 'primary'}
-                    fontSize={size ? size : 'default'}
+                    fontSize={fontSize ? fontSize : 'default'}
                     classes={classes ? classes : null}
                     className={className}
                     onClick={onClick}

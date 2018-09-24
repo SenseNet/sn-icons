@@ -26,7 +26,7 @@ export class FlatIcon extends React.Component<FlatIconProps, {}> {
             classes={classes ? classes : null}
             className={`flaticon-${iconName}`}
             style={style ? style : null}
-            onClick={onClick ? (e) => onClick(e) : null}
+            onClick={onClick ? onClick : null}
         />
     }
 }
