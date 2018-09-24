@@ -4,7 +4,7 @@ import * as React from 'react'
 interface MaterialIconProps {
     iconName: string,
     color?: 'inherit' | 'primary' | 'secondary' | 'action' | 'error' | 'disabled',
-    fontSize?: number | 'inherit' | 'default',
+    fontSize?: 'inherit' | 'default',
     classes?: object,
     style?: object,
     onClick?

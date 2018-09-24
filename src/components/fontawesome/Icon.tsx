@@ -5,7 +5,7 @@ import '../../assets/css/font-awesome.css'
 interface FontAwesomeIconProps {
     iconName: string,
     color?: 'inherit' | 'primary' | 'secondary' | 'action' | 'error' | 'disabled',
-    fontSize?: number | 'inherit' | 'default',
+    fontSize?: 'inherit' | 'default',
     classes?: object,
     style?: object,
     onClick?
