@@ -47,8 +47,7 @@ export class Icon extends React.Component<IconProps, {}> {
      */
     public render() {
         const { type, color, size, classes, iconName, style, onClick, className, fontSize } = this.props
-        const t = type ? type : iconType.materialui
-        switch (t) {
+        switch (type) {
             case iconType.materialui:
                 return <MaterialIcon color={color} fontSize={fontSize} classes={classes} iconName={iconName} style={style} onClick={onClick} className={className}>{this.props.children ? this.props.children : null}</MaterialIcon>
             case iconType.flaticon:
