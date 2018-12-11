@@ -1,5 +1,9 @@
 # @sensenet/icons-react
 
+------
+### This package is not under active development. You can find our latest packages in the [sensenset/sn-client](https://github.com/sensenet/sn-client) monorepo.
+------
+
 A React component rendering icons for sensenet supporting [material-ui](https://material.io/tools/icons/), [fontawesome](https://fontawesome.com/icons?d=gallery), [flaticon material-design](https://www.flaticon.com/packs/material-design) and sensenet 6 image icons. 
 
 ## Install
